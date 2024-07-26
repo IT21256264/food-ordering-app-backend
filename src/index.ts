@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import MyUserRoute from "./routes/MyUserRoute";
 import MyRestaurantRoute from "./routes/MyRestuarentRoute";
 import RestaurantRoute from "./routes/RestaurantRoute";
+import orderRoute from "./routes/OrderRoute";
 import { v2 as cloudinary } from "cloudinary";
 
 // Connect to MongoDB
@@ -25,6 +26,8 @@ cloudinary.config({
 
 const app = express();
 app.use(cors());
+
+app.use("/api/order/checkout/webhook", express.raw({ type: "*/*" }));
 app.use(express.json());
 
 const PORT = process.env.PORT ?? 5000;
@@ -36,6 +39,7 @@ app.get("/health", async (req: Request, res: Response) => {
 app.use("/api/my/user", MyUserRoute);
 app.use("/api/my/restaurant", MyRestaurantRoute);
 app.use("/api/restaurant", RestaurantRoute);
+app.use("/api/order", orderRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
