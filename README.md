@@ -15,10 +15,6 @@ Before you begin, ensure you have the following installed:
 ### Installation
 
 1. Clone the repository:
-    ```sh
-    git clone https://github.com/your-repository.git
-    cd backend
-    ```
 
 2. Install the dependencies:
     ```sh
