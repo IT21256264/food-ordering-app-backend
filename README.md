@@ -1,4 +1,4 @@
-# Backend Project
+# Food Order App Backend
 
 This is the backend service for a food ordering application, built with Node.js, Express, TypeScript, and MongoDB. It includes integration with Stripe for payment processing and Cloudinary for image handling.
 
